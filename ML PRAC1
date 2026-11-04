@@ -1,0 +1,23 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# NumPy: numerical calculations
+a = np.array([10, 20, 30, 40, 50])
+print("Mean:", np.mean(a))
+print("Maximum:", np.max(a))
+
+# Pandas: data handling
+df = pd.DataFrame({
+    "Hours": [2, 4, 6, 8],
+    "Marks": [40, 50, 70, 90]
+})
+print(df)
+print(df.describe())
+
+# Matplotlib: visualization
+plt.plot(df["Hours"], df["Marks"], marker="o")
+plt.xlabel("Study Hours")
+plt.ylabel("Marks")
+plt.title("Study Hours vs Marks")
+plt.show()
