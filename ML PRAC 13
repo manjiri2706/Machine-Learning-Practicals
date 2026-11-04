@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_moons
+from sklearn.cluster import DBSCAN
+
+# Generate data with noise
+X, _ = make_moons(n_samples=300, noise=0.08, random_state=42)
+
+# Apply DBSCAN
+model = DBSCAN(eps=0.2, min_samples=5)
+labels = model.fit_predict(X)
+
+# Display clusters and outliers
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap="viridis")
+plt.title("DBSCAN Clustering")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.show()
+
+print("Cluster labels:", set(labels))
+print("Number of outliers:", sum(labels == -1))
